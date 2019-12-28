@@ -12,6 +12,8 @@ namespace PhotoEditor
 {
     public partial class MainForm : Form
     {
+        Bitmap originalBitmap;
+        Bitmap editedBitmap;
         public MainForm()
         {
             InitializeComponent();
@@ -23,6 +25,8 @@ namespace PhotoEditor
                 return;
             string fileName = openFileDialog.FileName.Replace(@"\","\\");
             originalImage.Image = Image.FromFile(fileName);
+            originalBitmap = new Bitmap(originalImage.Image);
+            
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -34,7 +38,9 @@ namespace PhotoEditor
             }
             else
             {
-                editedPhoto.Image = originalImage.Image;
+                editedBitmap = BlackAndWhite.Edit(originalBitmap);
+                if (editedBitmap != null)
+                    editedPhoto.Image = (Image)editedBitmap;
             }
         }
 
