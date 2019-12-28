@@ -1,6 +1,6 @@
 ﻿namespace PhotoEditor
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,13 +28,108 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.originalImage = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.optionsList = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.originalImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // originalImage
+            // 
+            this.originalImage.Location = new System.Drawing.Point(12, 12);
+            this.originalImage.Name = "originalImage";
+            this.originalImage.Size = new System.Drawing.Size(265, 465);
+            this.originalImage.TabIndex = 0;
+            this.originalImage.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(467, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(265, 465);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Location = new System.Drawing.Point(334, 12);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(75, 23);
+            this.btnOpen.TabIndex = 2;
+            this.btnOpen.Text = "Open photo";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(334, 42);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save photo";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(334, 186);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "Edit photo";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(283, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(171, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = " Please select a processing option:";
+            // 
+            // optionsList
+            // 
+            this.optionsList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.optionsList.FormattingEnabled = true;
+            this.optionsList.Location = new System.Drawing.Point(286, 106);
+            this.optionsList.Name = "optionsList";
+            this.optionsList.Size = new System.Drawing.Size(168, 21);
+            this.optionsList.TabIndex = 6;
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(744, 501);
+            this.Controls.Add(this.optionsList);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnOpen);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.originalImage);
+            this.Name = "MainForm";
+            this.Text = "PhotoEditor";
+            ((System.ComponentModel.ISupportInitialize)(this.originalImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox originalImage;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox optionsList;
     }
 }
 
