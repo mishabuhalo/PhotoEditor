@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.originalImage = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.editedPhoto = new System.Windows.Forms.PictureBox();
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.optionsList = new System.Windows.Forms.ComboBox();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.originalImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editedPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // originalImage
@@ -44,16 +46,18 @@
             this.originalImage.Location = new System.Drawing.Point(12, 12);
             this.originalImage.Name = "originalImage";
             this.originalImage.Size = new System.Drawing.Size(265, 465);
+            this.originalImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.originalImage.TabIndex = 0;
             this.originalImage.TabStop = false;
             // 
-            // pictureBox1
+            // editedPhoto
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(467, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(265, 465);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.editedPhoto.Location = new System.Drawing.Point(467, 12);
+            this.editedPhoto.Name = "editedPhoto";
+            this.editedPhoto.Size = new System.Drawing.Size(265, 465);
+            this.editedPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.editedPhoto.TabIndex = 1;
+            this.editedPhoto.TabStop = false;
             // 
             // btnOpen
             // 
@@ -63,6 +67,7 @@
             this.btnOpen.TabIndex = 2;
             this.btnOpen.Text = "Open photo";
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // btnSave
             // 
@@ -72,6 +77,7 @@
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Save photo";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnEdit
             // 
@@ -81,6 +87,7 @@
             this.btnEdit.TabIndex = 4;
             this.btnEdit.Text = "Edit photo";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // label1
             // 
@@ -100,6 +107,10 @@
             this.optionsList.Size = new System.Drawing.Size(168, 21);
             this.optionsList.TabIndex = 6;
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,12 +121,12 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnOpen);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.editedPhoto);
             this.Controls.Add(this.originalImage);
             this.Name = "MainForm";
             this.Text = "PhotoEditor";
             ((System.ComponentModel.ISupportInitialize)(this.originalImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editedPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,12 +135,14 @@
         #endregion
 
         private System.Windows.Forms.PictureBox originalImage;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox editedPhoto;
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox optionsList;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 
