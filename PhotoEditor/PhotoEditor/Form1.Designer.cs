@@ -94,14 +94,17 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(283, 78);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(171, 13);
+            this.label1.Size = new System.Drawing.Size(151, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = " Please select a processing option:";
+            this.label1.Text = " Please select a editing option:";
             // 
             // optionsList
             // 
             this.optionsList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.optionsList.FormattingEnabled = true;
+            this.optionsList.Items.AddRange(new object[] {
+            "Black And White",
+            "Pixel Art"});
             this.optionsList.Location = new System.Drawing.Point(286, 106);
             this.optionsList.Name = "optionsList";
             this.optionsList.Size = new System.Drawing.Size(168, 21);

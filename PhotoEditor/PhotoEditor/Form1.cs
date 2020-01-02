@@ -38,9 +38,22 @@ namespace PhotoEditor
             }
             else
             {
-                editedBitmap = BlackAndWhite.Edit(originalBitmap);
-                if (editedBitmap != null)
-                    editedPhoto.Image = (Image)editedBitmap;
+                switch(optionsList.Text)
+                {
+                    case "Black And White":
+                        {
+                            editedBitmap = BlackAndWhite.Edit(originalBitmap);
+                            if (editedBitmap != null)
+                                editedPhoto.Image = (Image)editedBitmap;
+                            break;
+                        }
+                    default:
+                        {
+                            MessageBox.Show("Please choose editing option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        }
+               }
+                
             }
         }
 
