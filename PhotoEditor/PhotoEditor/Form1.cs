@@ -42,7 +42,16 @@ namespace PhotoEditor
                 {
                     case "Black And White":
                         {
+                            editedBitmap = null;
                             editedBitmap = BlackAndWhite.Edit(originalBitmap);
+                            if (editedBitmap != null)
+                                editedPhoto.Image = (Image)editedBitmap;
+                            break;
+                        }
+                    case "Pixel Art":
+                        {
+                            editedBitmap = null;
+                            editedBitmap = PixelArt.Edit(originalBitmap,8);
                             if (editedBitmap != null)
                                 editedPhoto.Image = (Image)editedBitmap;
                             break;
