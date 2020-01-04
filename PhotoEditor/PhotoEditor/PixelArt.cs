@@ -11,9 +11,10 @@ namespace PhotoEditor
     {
         public static Bitmap Edit(Bitmap originalBitmap, int n)
         {
-            var editedBitmap = originalBitmap;
+            
             var newHeight = originalBitmap.Height - originalBitmap.Height % n;
             var newWidth = originalBitmap.Width - originalBitmap.Width % n;
+            var editedBitmap = new Bitmap(newWidth, newHeight);
             var tmpRed = 0;
             var tmpGreen = 0;
             var tmpBlue = 0;
