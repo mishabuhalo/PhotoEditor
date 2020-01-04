@@ -11,6 +11,7 @@ namespace PhotoEditor
     {
         public static Bitmap Edit(Bitmap originalBitmap)
         {
+
             var editedBitmap = originalBitmap;
             for (int i = 0; i < originalBitmap.Width; i++)
             {

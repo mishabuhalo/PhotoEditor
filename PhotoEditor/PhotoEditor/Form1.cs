@@ -12,8 +12,9 @@ namespace PhotoEditor
 {
     public partial class MainForm : Form
     {
-        Bitmap originalBitmap;
-        Bitmap editedBitmap;
+      
+        ImageProcessing imageProcessing = new ImageProcessing();
+
         public MainForm()
         {
             InitializeComponent();
@@ -24,9 +25,19 @@ namespace PhotoEditor
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             string fileName = openFileDialog.FileName.Replace(@"\","\\");
-            originalImage.Image = Image.FromFile(fileName);
-            originalBitmap = new Bitmap(originalImage.Image);
-            
+
+
+            imageProcessing.LoadImage(fileName);
+
+            if (imageProcessing.originalBitmap != null)
+                originalImage.Image = Image.FromFile(fileName);
+            else
+            {
+                MessageBox.Show("Unnable to load the photo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -36,24 +47,31 @@ namespace PhotoEditor
                 MessageBox.Show("Unnable to edit the photo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             else
             {
                 switch(optionsList.Text)
                 {
                     case "Black And White":
                         {
-                            editedBitmap = null;
-                            editedBitmap = BlackAndWhite.Edit(originalBitmap);
-                            if (editedBitmap != null)
-                                editedPhoto.Image = (Image)editedBitmap;
+                            imageProcessing.editedBitmap = null;
+
+                            imageProcessing.editedBitmap = BlackAndWhite.Edit(imageProcessing.originalBitmap);
+
+                            if (imageProcessing.editedBitmap != null)
+                                editedPhoto.Image = (Image)imageProcessing.editedBitmap;
+
                             break;
                         }
                     case "Pixel Art":
                         {
-                            editedBitmap = null;
-                            editedBitmap = PixelArt.Edit(originalBitmap,8);
-                            if (editedBitmap != null)
-                                editedPhoto.Image = (Image)editedBitmap;
+                            imageProcessing.editedBitmap = null;
+
+                            imageProcessing.editedBitmap = PixelArt.Edit(imageProcessing.originalBitmap, 8);
+
+                            if (imageProcessing.editedBitmap != null)
+                                editedPhoto.Image = (Image)imageProcessing.editedBitmap;
+
                             break;
                         }
                     default:
