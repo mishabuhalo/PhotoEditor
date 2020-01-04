@@ -11,18 +11,17 @@ namespace PhotoEditor
     {
         public static Bitmap Edit(Bitmap originalBitmap)
         {
-
-            var editedBitmap = originalBitmap;
-            for (int i = 0; i < originalBitmap.Width; i++)
+            ImageProcessing imageProcessing = new ImageProcessing(originalBitmap);
+            for (int i = 0; i < imageProcessing.originalBitmap.Width; i++)
             {
-                for(int j = 0; j < originalBitmap.Height; j++)
+                for(int j = 0; j < imageProcessing.originalBitmap.Height; j++)
                 {
                     var colorValue = originalBitmap.GetPixel(i,j);
                     var avarageValueOfColor = ((int)colorValue.R + (int)colorValue.G + (int)colorValue.B) / 3;
-                    editedBitmap.SetPixel(i, j, Color.FromArgb(avarageValueOfColor, avarageValueOfColor, avarageValueOfColor));
+                    imageProcessing.editedBitmap.SetPixel(i, j, Color.FromArgb(avarageValueOfColor, avarageValueOfColor, avarageValueOfColor));
                 }
             }
-           return editedBitmap;
+           return imageProcessing.editedBitmap;
         }
     }
 }

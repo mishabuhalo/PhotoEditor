@@ -11,11 +11,11 @@ namespace PhotoEditor
     {
         public static Bitmap Edit(Bitmap originalBitmap, int n)
         {
-            
-            var newHeight = originalBitmap.Height - originalBitmap.Height % n;
-            var newWidth = originalBitmap.Width - originalBitmap.Width % n;
+            var imageProcessing = new ImageProcessing(originalBitmap);
+            var newHeight = imageProcessing.originalBitmap.Height - imageProcessing.originalBitmap.Height % n;
+            var newWidth = imageProcessing.originalBitmap.Width - imageProcessing.originalBitmap.Width % n;
 
-            var editedBitmap = new Bitmap(newWidth, newHeight);
+            imageProcessing.editedBitmap = new Bitmap(newWidth, newHeight);
 
             var tmpRed = 0;
             var tmpGreen = 0;
@@ -29,9 +29,9 @@ namespace PhotoEditor
                     {
                         for(int l = j; l< j+ n; l++)
                         {
-                            tmpRed += (int)originalBitmap.GetPixel(k, l).R;
-                            tmpGreen += (int)originalBitmap.GetPixel(k, l).G;
-                            tmpBlue += (int)originalBitmap.GetPixel(k, l).B;
+                            tmpRed += (int)imageProcessing.originalBitmap.GetPixel(k, l).R;
+                            tmpGreen += (int)imageProcessing.originalBitmap.GetPixel(k, l).G;
+                            tmpBlue += (int)imageProcessing.originalBitmap.GetPixel(k, l).B;
                         }
                     }
 
@@ -47,7 +47,7 @@ namespace PhotoEditor
                     {
                         for (int l = j; l <j+ n; l++)
                         {
-                            editedBitmap.SetPixel(k, l, Color.FromArgb(avarageValueOfRed, avarageValueOfGreen, avarageValueOfBlue));
+                            imageProcessing.editedBitmap.SetPixel(k, l, Color.FromArgb(avarageValueOfRed, avarageValueOfGreen, avarageValueOfBlue));
                         }
                     }
                    
@@ -55,7 +55,7 @@ namespace PhotoEditor
 
             }
             
-            return editedBitmap;
+            return imageProcessing.editedBitmap;
         }
     }
 }
