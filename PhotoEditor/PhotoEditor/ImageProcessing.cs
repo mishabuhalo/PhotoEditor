@@ -33,5 +33,7 @@ namespace PhotoEditor
         {
             return editedBitmap;
         }
+
+        
     }
 }
