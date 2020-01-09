@@ -9,6 +9,7 @@ namespace PhotoEditor
 {
     class BitmapByte
     {
+       
         public static byte[] GetBytes(Bitmap input)
         {
             byte[] result = new byte[input.Width*input.Height*3];

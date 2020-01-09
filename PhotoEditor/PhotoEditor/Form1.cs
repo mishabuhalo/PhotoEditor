@@ -12,7 +12,7 @@ namespace PhotoEditor
 {
     public partial class MainForm : Form
     {
-      
+        
         ImageProcessing imageProcessing = new ImageProcessing();
 
         public MainForm()
@@ -58,8 +58,10 @@ namespace PhotoEditor
 
                             imageProcessing.editedBitmap = BlackAndWhite.Edit(imageProcessing.originalBitmap);
 
-                            if (imageProcessing.editedBitmap != null)
-                                editedPhoto.Image = (Image)imageProcessing.editedBitmap;
+                            /*if (imageProcessing.editedBitmap != null)
+                                editedPhoto.Image = (Image)imageProcessing.editedBitmap;*/
+                            Bitmap tmpbitmap = imageProcessing.Convolution(imageProcessing.originalBitmap, imageProcessing.kernel);
+                            editedPhoto.Image = (Image)tmpbitmap;
 
                             break;
                         }
