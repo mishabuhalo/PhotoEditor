@@ -117,7 +117,12 @@
             "Motion Blur Filter",
             "Motion Blur Left To Right Filter",
             "Motion Blur Right To Left Filter",
-            "Soften Filter"});
+            "Soften Filter",
+            "Sharpen Filter",
+            "Sharpen 3x3 Filter",
+            "Sharpen 3x3 Factor Filter",
+            "Sharpen 5x5 Filter",
+            "Intense Sharpen Filter"});
             this.optionsList.Location = new System.Drawing.Point(286, 106);
             this.optionsList.Name = "optionsList";
             this.optionsList.Size = new System.Drawing.Size(168, 21);

@@ -154,6 +154,36 @@ namespace PhotoEditor
                             editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
                             break;
                         }
+                    case "Sharpen Filter":
+                        {
+                            ConvolutionFilters filter = new SharpenFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Sharpen 3x3 Filter":
+                        {
+                            ConvolutionFilters filter = new Sharpen3x3Filter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Sharpen 3x3 Factor Filter":
+                        {
+                            ConvolutionFilters filter = new Sharpen3x3FactorFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Sharpen 5x5 Filter":
+                        {
+                            ConvolutionFilters filter = new Sharpen5x5Filter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Intense Sharpen Filter":
+                        {
+                            ConvolutionFilters filter = new IntenseSharpenFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
                     default:
                         {
                             MessageBox.Show("Please choose editing option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
