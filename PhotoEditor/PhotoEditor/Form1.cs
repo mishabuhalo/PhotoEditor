@@ -106,6 +106,48 @@ namespace PhotoEditor
                             editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
                             break;
                         }
+                    case "Blur 3x3 Filter":
+                        {
+                            ConvolutionFilters filter = new Blur3x3Filter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Blur 5x5 Filter":
+                        {
+                            ConvolutionFilters filter = new Blur5x5Filter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Gaussian 3x3 Blur Filter":
+                        {
+                            ConvolutionFilters filter = new Gaussian3x3BlurFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Gaussian 5x5 Blur Filter":
+                        {
+                            ConvolutionFilters filter = new Gaussian5x5BlurFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Motion Blur Filter":
+                        {
+                            ConvolutionFilters filter = new MotionBlurFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Motion Blur Left To Right Filter":
+                        {
+                            ConvolutionFilters filter = new MotionBlurLeftToRightFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Motion Blur Right To Left Filter":
+                        {
+                            ConvolutionFilters filter = new MotionBlurRightToLeftFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
                     default:
                         {
                             MessageBox.Show("Please choose editing option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BitmapByte.cs" />
     <Compile Include="BlackAndWhite.cs" />
+    <Compile Include="BlurFilters.cs" />
     <Compile Include="Convolution.cs" />
     <Compile Include="ConvolutionFilters.cs" />
     <Compile Include="EdgeDetectionFilter.cs" />

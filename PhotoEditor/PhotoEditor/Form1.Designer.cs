@@ -109,7 +109,14 @@
             "Edge Detection 45 Degree Filter",
             "Horizontal Edge Detection Filter",
             "Vertical Edge Detection Filter",
-            "Edge Detection Top Left Bottom Right Filter"});
+            "Edge Detection Top Left Bottom Right Filter",
+            "Blur 3x3 Filter",
+            "Blur 5x5 Filter",
+            "Gaussian 3x3 Blur Filter",
+            "Gaussian 5x5 Blur Filter",
+            "Motion Blur Filter",
+            "Motion Blur Left To Right Filter",
+            "Motion Blur Right To Left Filter"});
             this.optionsList.Location = new System.Drawing.Point(286, 106);
             this.optionsList.Name = "optionsList";
             this.optionsList.Size = new System.Drawing.Size(168, 21);
