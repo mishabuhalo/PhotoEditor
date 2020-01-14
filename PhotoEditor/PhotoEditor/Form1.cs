@@ -184,6 +184,30 @@ namespace PhotoEditor
                             editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
                             break;
                         }
+                    case "Emboss Filter":
+                        {
+                            ConvolutionFilters filter = new EmbossFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Emboss 45 Degree Filter":
+                        {
+                            ConvolutionFilters filter = new Emboss45DegreeFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Emboss Top Left Bottom Right Filter":
+                        {
+                            ConvolutionFilters filter = new EmbossTopLeftBottomRightFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Intense Emboss Filter":
+                        {
+                            ConvolutionFilters filter = new IntenseEmbossFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
                     default:
                         {
                             MessageBox.Show("Please choose editing option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
