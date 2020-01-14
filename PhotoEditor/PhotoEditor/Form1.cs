@@ -208,6 +208,12 @@ namespace PhotoEditor
                             editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
                             break;
                         }
+                    case "High Pass Filter":
+                        {
+                            ConvolutionFilters filter = new HighPassFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
                     default:
                         {
                             MessageBox.Show("Please choose editing option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

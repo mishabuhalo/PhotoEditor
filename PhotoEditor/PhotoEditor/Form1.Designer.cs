@@ -126,7 +126,8 @@
             "Emboss Filter",
             "Emboss 45 Degree Filter",
             "Emboss Top Left Bottom Right Filter",
-            "Intense Emboss Filter"});
+            "Intense Emboss Filter",
+            "High Pass Filter"});
             this.optionsList.Location = new System.Drawing.Point(286, 106);
             this.optionsList.Name = "optionsList";
             this.optionsList.Size = new System.Drawing.Size(168, 21);
