@@ -106,7 +106,10 @@
             "Black And White",
             "Pixel Art",
             "Edge Detection Filter",
-            "Edge Detection 45 Degree Filter"});
+            "Edge Detection 45 Degree Filter",
+            "Horizontal Edge Detection Filter",
+            "Vertical Edge Detection Filter",
+            "Edge Detection Top Left Bottom Right Filter"});
             this.optionsList.Location = new System.Drawing.Point(286, 106);
             this.optionsList.Name = "optionsList";
             this.optionsList.Size = new System.Drawing.Size(168, 21);

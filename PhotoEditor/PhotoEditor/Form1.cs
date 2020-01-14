@@ -12,7 +12,7 @@ namespace PhotoEditor
 {
     public partial class MainForm : Form
     {
-        
+
         ImageProcessing imageProcessing = new ImageProcessing();
 
         public MainForm()
@@ -24,7 +24,7 @@ namespace PhotoEditor
         {
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
-            string fileName = openFileDialog.FileName.Replace(@"\","\\");
+            string fileName = openFileDialog.FileName.Replace(@"\", "\\");
 
 
             imageProcessing.LoadImage(fileName);
@@ -50,7 +50,7 @@ namespace PhotoEditor
 
             else
             {
-                switch(optionsList.Text)
+                switch (optionsList.Text)
                 {
                     case "Black And White":
                         {
@@ -60,7 +60,7 @@ namespace PhotoEditor
 
                             if (imageProcessing.editedBitmap != null)
                                 editedPhoto.Image = (Image)imageProcessing.editedBitmap;
-                            
+
 
                             break;
                         }
@@ -87,13 +87,32 @@ namespace PhotoEditor
                             editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
                             break;
                         }
+                    case "Horizontal Edge Detection Filter":
+                        {
+                            ConvolutionFilters filter = new HorizontalEdgeDetectionFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Vertical Edge Detection Filter":
+                        {
+                            ConvolutionFilters filter = new VerticalEdgeDetectionFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+
+                    case "Edge Detection Top Left Bottom Right Filter":
+                        {
+                            ConvolutionFilters filter = new EdgeDetectionTopLeftBottomRightFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
                     default:
                         {
                             MessageBox.Show("Please choose editing option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             break;
                         }
-               }
-                
+                }
+
             }
         }
 
@@ -111,7 +130,7 @@ namespace PhotoEditor
             {
                 try
                 {
-                    editedPhoto.Image.Save(saveFileDialog.FileName,  System.Drawing.Imaging.ImageFormat.Jpeg);
+                    editedPhoto.Image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
                 }
                 catch
                 {

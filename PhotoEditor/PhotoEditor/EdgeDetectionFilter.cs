@@ -73,4 +73,108 @@ namespace PhotoEditor
         }
 
     }
+
+    class HorizontalEdgeDetectionFilter : ConvolutionFilters
+    {
+        public override string Filtername
+        {
+            get { return "HorizontalEdgeDetectionFilter"; }
+        }
+
+        private double factor = 1.0;
+
+        public override double Factor
+        {
+            get { return factor; }
+        }
+
+        private double bias = 0.0;
+
+        public override double Bias
+        {
+            get { return bias; }
+        }
+
+        private double[,] FilterMatrix =
+            new double[,] { {  0,  0,  0,  0,  0, },
+                            {  0,  0,  0,  0,  0, },
+                            { -1, -1,  2,  0,  0, },
+                            {  0,  0,  0,  0,  0, },
+                            {  0,  0,  0,  0,  0, }, };
+
+        public override double[,] filterMatrix
+        {
+            get { return FilterMatrix; }
+        }
+
+    }
+
+    class VerticalEdgeDetectionFilter : ConvolutionFilters
+    {
+        public override string Filtername
+        {
+            get { return "VerticalEdgeDetectionFilter"; }
+        }
+
+        private double factor = 1.0;
+
+        public override double Factor
+        {
+            get { return factor; }
+        }
+
+        private double bias = 0.0;
+
+        public override double Bias
+        {
+            get { return bias; }
+        }
+
+        private double[,] FilterMatrix =
+            new double[,] { {  0,  0, -1,  0,  0, },
+                            {  0,  0, -1,  0,  0, },
+                            {  0,  0,  4,  0,  0, },
+                            {  0,  0, -1,  0,  0, },
+                            {  0,  0, -1,  0,  0, }, };
+
+        public override double[,] filterMatrix
+        {
+            get { return FilterMatrix; }
+        }
+
+    }
+
+
+    class EdgeDetectionTopLeftBottomRightFilter : ConvolutionFilters
+    {
+        public override string Filtername
+        {
+            get { return "EdgeDetectionTopLeftBottomRightFilter"; }
+        }
+
+        private double factor = 1.0;
+
+        public override double Factor
+        {
+            get { return factor; }
+        }
+
+        private double bias = 0.0;
+
+        public override double Bias
+        {
+            get { return bias; }
+        }
+
+        private double[,] FilterMatrix =
+            new double[,] { { -5,  0,  0, },
+                            {  0,  0,  0, },
+                            {  0,  0,  5, }, };
+
+        public override double[,] filterMatrix
+        {
+            get { return FilterMatrix; }
+        }
+
+    }
 }
