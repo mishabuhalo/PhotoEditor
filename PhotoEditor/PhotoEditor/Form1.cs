@@ -75,9 +75,15 @@ namespace PhotoEditor
 
                             break;
                         }
-                    case "EdgeDetectionFilter":
+                    case "Edge Detection Filter":
                         {
                             ConvolutionFilters filter = new EdgeDetectionFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
+                    case "Edge Detection 45 Degree Filter":
+                        {
+                            ConvolutionFilters filter = new EdgeDetection45DegreeFilter();
                             editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
                             break;
                         }

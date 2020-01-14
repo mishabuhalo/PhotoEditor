@@ -105,7 +105,8 @@
             this.optionsList.Items.AddRange(new object[] {
             "Black And White",
             "Pixel Art",
-            "EdgeDetectionFilter"});
+            "Edge Detection Filter",
+            "Edge Detection 45 Degree Filter"});
             this.optionsList.Location = new System.Drawing.Point(286, 106);
             this.optionsList.Name = "optionsList";
             this.optionsList.Size = new System.Drawing.Size(168, 21);
