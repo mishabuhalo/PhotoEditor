@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BitmapByte.cs" />
     <Compile Include="BlackAndWhite.cs" />
     <Compile Include="BlurFilters.cs" />
     <Compile Include="Convolution.cs" />
