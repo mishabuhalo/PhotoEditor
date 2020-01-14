@@ -116,7 +116,8 @@
             "Gaussian 5x5 Blur Filter",
             "Motion Blur Filter",
             "Motion Blur Left To Right Filter",
-            "Motion Blur Right To Left Filter"});
+            "Motion Blur Right To Left Filter",
+            "Soften Filter"});
             this.optionsList.Location = new System.Drawing.Point(286, 106);
             this.optionsList.Name = "optionsList";
             this.optionsList.Size = new System.Drawing.Size(168, 21);

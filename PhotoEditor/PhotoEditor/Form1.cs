@@ -148,6 +148,12 @@ namespace PhotoEditor
                             editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
                             break;
                         }
+                    case "Soften Filter":
+                        {
+                            ConvolutionFilters filter = new SoftenFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+                            break;
+                        }
                     default:
                         {
                             MessageBox.Show("Please choose editing option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
