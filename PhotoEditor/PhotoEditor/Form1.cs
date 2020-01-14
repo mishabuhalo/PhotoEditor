@@ -58,10 +58,9 @@ namespace PhotoEditor
 
                             imageProcessing.editedBitmap = BlackAndWhite.Edit(imageProcessing.originalBitmap);
 
-                            /*if (imageProcessing.editedBitmap != null)
-                                editedPhoto.Image = (Image)imageProcessing.editedBitmap;*/
-                            Bitmap tmpbitmap = imageProcessing.Convolution(imageProcessing.originalBitmap, imageProcessing.kernel);
-                            editedPhoto.Image = (Image)tmpbitmap;
+                            if (imageProcessing.editedBitmap != null)
+                                editedPhoto.Image = (Image)imageProcessing.editedBitmap;
+                            
 
                             break;
                         }
@@ -74,6 +73,12 @@ namespace PhotoEditor
                             if (imageProcessing.editedBitmap != null)
                                 editedPhoto.Image = (Image)imageProcessing.editedBitmap;
 
+                            break;
+                        }
+                    case "EdgeDetectionFilter":
+                        {
+                            ConvolutionFilters filter = new EdgeDetectionFilter();
+                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
                             break;
                         }
                     default:

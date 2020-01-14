@@ -27,8 +27,8 @@ namespace PhotoEditor
             double Green = 0.0;
             double Blue = 0.0;
 
-            int filterWidth = filter.filterMatrix.GetLength(0);
-            int filterHeight = filter.filterMatrix.GetLength(1);
+            int filterWidth = filter.filterMatrix.GetLength(1);
+            int filterHeight = filter.filterMatrix.GetLength(0);
 
             int filterOffset = (filterWidth - 1) / 2;
 
@@ -44,17 +44,17 @@ namespace PhotoEditor
                     Green = 0;
                     Blue = 0;
 
-                    pixel = i * sourceData.Stride * j * 4;
+                    pixel = i * sourceData.Stride + j * 4;
 
                     for (int k = -filterOffset; k <= filterOffset; k++)
                     {
                         for (int l = -filterOffset; l <= filterOffset; l++)
                         {
-                            neighbourPixel = pixel + (j * 4) + (i * sourceData.Stride);
+                            neighbourPixel = pixel + (l * 4) + (k * sourceData.Stride);
 
-                            Red += (inputBuffer[neighbourPixel + 2]) * filter.filterMatrix[i + filterOffset, j + filterOffset];
-                            Green += (inputBuffer[neighbourPixel + 1]) * filter.filterMatrix[i + filterOffset, j + filterOffset];
-                            Blue += (inputBuffer[neighbourPixel]) * filter.filterMatrix[i + filterOffset, j + filterOffset];
+                            Red += (inputBuffer[neighbourPixel + 2]) * filter.filterMatrix[k + filterOffset, l + filterOffset];
+                            Green += (inputBuffer[neighbourPixel + 1]) * filter.filterMatrix[k + filterOffset, l + filterOffset];
+                            Blue += (inputBuffer[neighbourPixel]) * filter.filterMatrix[k + filterOffset, l + filterOffset];
                         }
                     }
 

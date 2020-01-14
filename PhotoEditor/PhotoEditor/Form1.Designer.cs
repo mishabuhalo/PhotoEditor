@@ -104,7 +104,8 @@
             this.optionsList.FormattingEnabled = true;
             this.optionsList.Items.AddRange(new object[] {
             "Black And White",
-            "Pixel Art"});
+            "Pixel Art",
+            "EdgeDetectionFilter"});
             this.optionsList.Location = new System.Drawing.Point(286, 106);
             this.optionsList.Name = "optionsList";
             this.optionsList.Size = new System.Drawing.Size(168, 21);
