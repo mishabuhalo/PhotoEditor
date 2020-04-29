@@ -26,12 +26,12 @@ namespace PhotoEditor
                 return;
             string fileName = openFileDialog.FileName.Replace(@"\", "\\");
 
-
-            imageProcessing.LoadImage(fileName);
-
-            if (imageProcessing.originalBitmap != null)
+            try
+            {
+                imageProcessing.LoadImage(fileName);
                 originalImage.Image = Image.FromFile(fileName);
-            else
+            }
+            catch
             {
                 MessageBox.Show("Unnable to load the photo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -236,7 +236,7 @@ namespace PhotoEditor
                 MessageBox.Show("Unnable to save the photo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            saveFileDialog.Filter = "Image Files(*.bmp)|*.bmp|Image Files(*.jpg)|*.jpg|Image Files(*.gif)|*.gif|Image Files(*.png)|*.png|All files (*.*)|*.*";
+            saveFileDialog.Filter = "Image Files(*.jpg)|*.jpg|Image Files(*.bmp)|*.bmp|Image Files(*.gif)|*.gif|Image Files(*.png)|*.png|All files (*.*)|*.*";
             if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             else
