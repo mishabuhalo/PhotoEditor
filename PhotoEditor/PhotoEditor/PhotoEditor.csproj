@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="HighPassFilter.cs" />
     <Compile Include="ImageProcessing.cs" />
+    <Compile Include="OilPainting.cs" />
     <Compile Include="PixelArt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

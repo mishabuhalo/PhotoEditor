@@ -75,6 +75,11 @@ namespace PhotoEditor
 
                             break;
                         }
+                    case "Oil Painting":
+                        {
+                            editedPhoto.Image = imageProcessing.originalBitmap.OilPaintingFilter(25,7);
+                            break;
+                        }
                     case "Edge Detection Filter":
                         {
                             ConvolutionFilters filter = new EdgeDetectionFilter();

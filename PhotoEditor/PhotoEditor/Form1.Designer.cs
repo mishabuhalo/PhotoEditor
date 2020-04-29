@@ -105,6 +105,7 @@
             this.optionsList.Items.AddRange(new object[] {
             "Black And White",
             "Pixel Art",
+            "Oil Painting",
             "Edge Detection Filter",
             "Edge Detection 45 Degree Filter",
             "Horizontal Edge Detection Filter",
@@ -127,7 +128,8 @@
             "Emboss 45 Degree Filter",
             "Emboss Top Left Bottom Right Filter",
             "Intense Emboss Filter",
-            "High Pass Filter"});
+            "High Pass Filter"
+            });
             this.optionsList.Location = new System.Drawing.Point(286, 106);
             this.optionsList.Name = "optionsList";
             this.optionsList.Size = new System.Drawing.Size(168, 21);
