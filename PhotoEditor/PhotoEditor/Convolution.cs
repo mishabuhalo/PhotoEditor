@@ -58,7 +58,7 @@ namespace PhotoEditor
                         }
                     }
 
-                    Blue = filter.Factor * Blue + filter.Bias;
+                   Blue = filter.Factor * Blue + filter.Bias;
                     Green = filter.Factor * Green + filter.Bias;
                     Red = filter.Factor * Red + filter.Bias;
 

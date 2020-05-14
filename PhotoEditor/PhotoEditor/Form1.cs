@@ -20,7 +20,20 @@ namespace PhotoEditor
             InitializeComponent();
         }
 
-        private void btnOpen_Click(object sender, EventArgs e)
+
+        public bool checkOriginalPhoto()
+        {
+            if (originalImage.Image == null)
+            {
+                MessageBox.Show("Please open photo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else
+                return true;
+        }
+ 
+
+        private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
@@ -37,199 +50,9 @@ namespace PhotoEditor
                 return;
             }
 
-
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (originalImage.Image == null)
-            {
-                MessageBox.Show("Unnable to edit the photo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            else
-            {
-                switch (optionsList.Text)
-                {
-                    case "Black And White":
-                        {
-                            imageProcessing.editedBitmap = null;
-
-                            imageProcessing.editedBitmap = BlackAndWhite.Edit(imageProcessing.originalBitmap);
-
-                            if (imageProcessing.editedBitmap != null)
-                                editedPhoto.Image = (Image)imageProcessing.editedBitmap;
-
-
-                            break;
-                        }
-                    case "Pixel Art":
-                        {
-                            imageProcessing.editedBitmap = null;
-
-                            imageProcessing.editedBitmap = PixelArt.Edit(imageProcessing.originalBitmap, 8);
-
-                            if (imageProcessing.editedBitmap != null)
-                                editedPhoto.Image = (Image)imageProcessing.editedBitmap;
-
-                            break;
-                        }
-                    case "Oil Painting":
-                        {
-                            editedPhoto.Image = imageProcessing.originalBitmap.OilPaintingFilter(25,7);
-                            break;
-                        }
-                    case "Edge Detection Filter":
-                        {
-                            ConvolutionFilters filter = new EdgeDetectionFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Edge Detection 45 Degree Filter":
-                        {
-                            ConvolutionFilters filter = new EdgeDetection45DegreeFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Horizontal Edge Detection Filter":
-                        {
-                            ConvolutionFilters filter = new HorizontalEdgeDetectionFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Vertical Edge Detection Filter":
-                        {
-                            ConvolutionFilters filter = new VerticalEdgeDetectionFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-
-                    case "Edge Detection Top Left Bottom Right Filter":
-                        {
-                            ConvolutionFilters filter = new EdgeDetectionTopLeftBottomRightFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Blur 3x3 Filter":
-                        {
-                            ConvolutionFilters filter = new Blur3x3Filter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Blur 5x5 Filter":
-                        {
-                            ConvolutionFilters filter = new Blur5x5Filter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Gaussian 3x3 Blur Filter":
-                        {
-                            ConvolutionFilters filter = new Gaussian3x3BlurFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Gaussian 5x5 Blur Filter":
-                        {
-                            ConvolutionFilters filter = new Gaussian5x5BlurFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Motion Blur Filter":
-                        {
-                            ConvolutionFilters filter = new MotionBlurFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Motion Blur Left To Right Filter":
-                        {
-                            ConvolutionFilters filter = new MotionBlurLeftToRightFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Motion Blur Right To Left Filter":
-                        {
-                            ConvolutionFilters filter = new MotionBlurRightToLeftFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Soften Filter":
-                        {
-                            ConvolutionFilters filter = new SoftenFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Sharpen Filter":
-                        {
-                            ConvolutionFilters filter = new SharpenFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Sharpen 3x3 Filter":
-                        {
-                            ConvolutionFilters filter = new Sharpen3x3Filter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Sharpen 3x3 Factor Filter":
-                        {
-                            ConvolutionFilters filter = new Sharpen3x3FactorFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Sharpen 5x5 Filter":
-                        {
-                            ConvolutionFilters filter = new Sharpen5x5Filter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Intense Sharpen Filter":
-                        {
-                            ConvolutionFilters filter = new IntenseSharpenFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Emboss Filter":
-                        {
-                            ConvolutionFilters filter = new EmbossFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Emboss 45 Degree Filter":
-                        {
-                            ConvolutionFilters filter = new Emboss45DegreeFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Emboss Top Left Bottom Right Filter":
-                        {
-                            ConvolutionFilters filter = new EmbossTopLeftBottomRightFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "Intense Emboss Filter":
-                        {
-                            ConvolutionFilters filter = new IntenseEmbossFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    case "High Pass Filter":
-                        {
-                            ConvolutionFilters filter = new HighPassFilter();
-                            editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
-                            break;
-                        }
-                    default:
-                        {
-                            MessageBox.Show("Please choose editing option", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            break;
-                        }
-                }
-
-            }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        private void saveFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (editedPhoto.Image == null)
             {
@@ -252,9 +75,271 @@ namespace PhotoEditor
             }
         }
 
-        private void btn_Reverse_Click(object sender, EventArgs e)
+        private void blur3x3FilterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(editedPhoto.Image!= null)
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new Blur3x3Filter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void blackAndWhiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(checkOriginalPhoto())
+            {
+                imageProcessing.editedBitmap = null;
+
+                imageProcessing.editedBitmap = BlackAndWhite.Edit(imageProcessing.originalBitmap);
+
+                if (imageProcessing.editedBitmap != null)
+                    editedPhoto.Image = (Image)imageProcessing.editedBitmap;
+            }
+        }
+
+        private void pixelArtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(checkOriginalPhoto())
+            {
+                imageProcessing.editedBitmap = null;
+
+                imageProcessing.editedBitmap = PixelArt.Edit(imageProcessing.originalBitmap, 8);
+
+                if (imageProcessing.editedBitmap != null)
+                    editedPhoto.Image = (Image)imageProcessing.editedBitmap;
+
+            }
+        }
+
+        private void oilPaintingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+
+                imageProcessing.editedBitmap = null;
+                imageProcessing.editedBitmap = imageProcessing.originalBitmap.OilPaintingFilter(25, 7);
+                if (imageProcessing.editedBitmap != null)
+                    editedPhoto.Image = (Image)imageProcessing.editedBitmap;
+            }
+        }
+
+        private void negativeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                imageProcessing.editedBitmap = null;
+
+                imageProcessing.editedBitmap = Negative.Edit(imageProcessing.originalBitmap);
+
+                if (imageProcessing.editedBitmap != null)
+                    editedPhoto.Image = (Image)imageProcessing.editedBitmap;
+            }
+        }
+
+        private void edgeDetection45DegreeFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new EdgeDetection45DegreeFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void edgeDetectionFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new EdgeDetectionFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void horizontalEdgeDetectionFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new HorizontalEdgeDetectionFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void verticalEdgeDetectionFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new VerticalEdgeDetectionFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void edgeDetectionTopLeftBottomRightFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new EdgeDetectionTopLeftBottomRightFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void blur5x5FilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new Blur5x5Filter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void gaussian3x3BlurFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new Gaussian3x3BlurFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void gaussian5x5BlurFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new Gaussian5x5BlurFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void motionBlurFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new MotionBlurFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void motionBlurLeftToRightFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new MotionBlurLeftToRightFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void motionBlurRightToLeftFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if(checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new MotionBlurRightToLeftFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+
+            }
+        }
+
+        private void softenFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new SoftenFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+
+            }
+        }
+
+        private void sharpenFilterToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new SharpenFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void sharpen3x3FilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new Sharpen3x3Filter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void sharpen3x3FactorFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new Sharpen3x3FactorFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void sharpen5x5FilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new Sharpen5x5Filter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void intenseSharpenFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new IntenseSharpenFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void embossFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new EmbossFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void emboss45DegreeFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new Emboss45DegreeFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void embossTopLeftBottomRightFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new EmbossTopLeftBottomRightFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void intenseEmbossFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new IntenseEmbossFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void highPassFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (checkOriginalPhoto())
+            {
+                ConvolutionFilters filter = new HighPassFilter();
+                editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
+            }
+        }
+
+        private void makeEditedPhotoCurrentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (editedPhoto.Image != null)
             {
                 originalImage.Image = editedPhoto.Image;
                 imageProcessing.originalBitmap = (Bitmap)editedPhoto.Image;
