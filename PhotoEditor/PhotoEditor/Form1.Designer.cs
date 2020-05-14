@@ -37,6 +37,7 @@
             this.optionsList = new System.Windows.Forms.ComboBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.btn_Reverse = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.originalImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editedPhoto)).BeginInit();
             this.SuspendLayout();
@@ -128,8 +129,7 @@
             "Emboss 45 Degree Filter",
             "Emboss Top Left Bottom Right Filter",
             "Intense Emboss Filter",
-            "High Pass Filter"
-            });
+            "High Pass Filter"});
             this.optionsList.Location = new System.Drawing.Point(286, 106);
             this.optionsList.Name = "optionsList";
             this.optionsList.Size = new System.Drawing.Size(168, 21);
@@ -139,11 +139,22 @@
             // 
             this.openFileDialog.FileName = "openFileDialog";
             // 
+            // btn_Reverse
+            // 
+            this.btn_Reverse.Location = new System.Drawing.Point(334, 216);
+            this.btn_Reverse.Name = "btn_Reverse";
+            this.btn_Reverse.Size = new System.Drawing.Size(75, 23);
+            this.btn_Reverse.TabIndex = 7;
+            this.btn_Reverse.Text = "Reverse";
+            this.btn_Reverse.UseVisualStyleBackColor = true;
+            this.btn_Reverse.Click += new System.EventHandler(this.btn_Reverse_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 501);
+            this.Controls.Add(this.btn_Reverse);
             this.Controls.Add(this.optionsList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEdit);
@@ -151,6 +162,7 @@
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.editedPhoto);
             this.Controls.Add(this.originalImage);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "PhotoEditor";
             ((System.ComponentModel.ISupportInitialize)(this.originalImage)).EndInit();
@@ -171,6 +183,7 @@
         private System.Windows.Forms.ComboBox optionsList;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Button btn_Reverse;
     }
 }
 

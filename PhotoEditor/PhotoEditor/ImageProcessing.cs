@@ -13,11 +13,13 @@ namespace PhotoEditor
     {
         public Bitmap originalBitmap;
         public Bitmap editedBitmap;
+
         public ImageProcessing(Bitmap bitmap)
         {
             originalBitmap = bitmap;
             editedBitmap = new Bitmap(originalBitmap.Width, originalBitmap.Height);
         }
+
         public ImageProcessing()
         {
             originalBitmap = null;

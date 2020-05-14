@@ -251,5 +251,20 @@ namespace PhotoEditor
                 }
             }
         }
+
+        private void btn_Reverse_Click(object sender, EventArgs e)
+        {
+            if(editedPhoto.Image!= null)
+            {
+                originalImage.Image = editedPhoto.Image;
+                imageProcessing.originalBitmap = (Bitmap)editedPhoto.Image;
+                editedPhoto.Image = null;
+            }
+
+            else
+            {
+                MessageBox.Show("You have no edited image!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
