@@ -450,6 +450,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.editedPhoto);
             this.Controls.Add(this.originalImage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "PhotoEditor";

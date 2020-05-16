@@ -154,7 +154,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
-                filterNameTextBox.Text = edgeDetection45DegreeFilterToolStripMenuItem.Text;
+                filterNameTextBox.Text = edgeDetectionFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new EdgeDetectionFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -224,7 +224,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
-                filterNameTextBox.Text = motionBlurFiltersToolStripMenuItem.Text;
+                filterNameTextBox.Text = motionBlurFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new MotionBlurFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -267,7 +267,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
-                filterNameTextBox.Text = sharpen3x3FactorFilterToolStripMenuItem.Text;
+                filterNameTextBox.Text = sharpenFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new SharpenFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -337,7 +337,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
-                filterNameTextBox.Text = edgeDetectionTopLeftBottomRightFilterToolStripMenuItem.Text;
+                filterNameTextBox.Text = embossTopLeftBottomRightFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new EmbossTopLeftBottomRightFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
