@@ -32,6 +32,8 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.filterNameTextBox = new System.Windows.Forms.TextBox();
+            this.arrowPicture = new System.Windows.Forms.PictureBox();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.openFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,6 +74,7 @@
             this.editedPhoto = new System.Windows.Forms.PictureBox();
             this.originalImage = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.arrowPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editedPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.originalImage)).BeginInit();
             this.SuspendLayout();
@@ -90,6 +93,30 @@
             this.toolStrip1.Size = new System.Drawing.Size(744, 25);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // filterNameTextBox
+            // 
+            this.filterNameTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.filterNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.filterNameTextBox.Enabled = false;
+            this.filterNameTextBox.Location = new System.Drawing.Point(299, 142);
+            this.filterNameTextBox.Multiline = true;
+            this.filterNameTextBox.Name = "filterNameTextBox";
+            this.filterNameTextBox.ReadOnly = true;
+            this.filterNameTextBox.Size = new System.Drawing.Size(134, 38);
+            this.filterNameTextBox.TabIndex = 10;
+            this.filterNameTextBox.Text = " Oil Painting Filter\r\nadfsdg\r\n\r\n";
+            this.filterNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // arrowPicture
+            // 
+            this.arrowPicture.Image = global::PhotoEditor.Properties.Resources.arrow;
+            this.arrowPicture.Location = new System.Drawing.Point(299, 186);
+            this.arrowPicture.Name = "arrowPicture";
+            this.arrowPicture.Size = new System.Drawing.Size(134, 97);
+            this.arrowPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.arrowPicture.TabIndex = 9;
+            this.arrowPicture.TabStop = false;
             // 
             // toolStripDropDownButton1
             // 
@@ -142,28 +169,28 @@
             // blackAndWhiteToolStripMenuItem
             // 
             this.blackAndWhiteToolStripMenuItem.Name = "blackAndWhiteToolStripMenuItem";
-            this.blackAndWhiteToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.blackAndWhiteToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.blackAndWhiteToolStripMenuItem.Text = "Black And White";
             this.blackAndWhiteToolStripMenuItem.Click += new System.EventHandler(this.blackAndWhiteToolStripMenuItem_Click);
             // 
             // pixelArtToolStripMenuItem
             // 
             this.pixelArtToolStripMenuItem.Name = "pixelArtToolStripMenuItem";
-            this.pixelArtToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.pixelArtToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.pixelArtToolStripMenuItem.Text = "Pixel Art";
             this.pixelArtToolStripMenuItem.Click += new System.EventHandler(this.pixelArtToolStripMenuItem_Click);
             // 
             // oilPaintingToolStripMenuItem
             // 
             this.oilPaintingToolStripMenuItem.Name = "oilPaintingToolStripMenuItem";
-            this.oilPaintingToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.oilPaintingToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.oilPaintingToolStripMenuItem.Text = "Oil Painting";
             this.oilPaintingToolStripMenuItem.Click += new System.EventHandler(this.oilPaintingToolStripMenuItem_Click);
             // 
             // negativeToolStripMenuItem
             // 
             this.negativeToolStripMenuItem.Name = "negativeToolStripMenuItem";
-            this.negativeToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.negativeToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.negativeToolStripMenuItem.Text = "Negative";
             this.negativeToolStripMenuItem.Click += new System.EventHandler(this.negativeToolStripMenuItem_Click);
             // 
@@ -176,7 +203,7 @@
             this.verticalEdgeDetectionFilterToolStripMenuItem,
             this.edgeDetectionTopLeftBottomRightFilterToolStripMenuItem});
             this.edgeDetectionFiltersToolStripMenuItem.Name = "edgeDetectionFiltersToolStripMenuItem";
-            this.edgeDetectionFiltersToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.edgeDetectionFiltersToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.edgeDetectionFiltersToolStripMenuItem.Text = "Edge Detection Filters";
             // 
             // edgeDetectionFilterToolStripMenuItem
@@ -222,7 +249,7 @@
             this.gaussian3x3BlurFilterToolStripMenuItem,
             this.gaussian5x5BlurFilterToolStripMenuItem});
             this.blurFiltersToolStripMenuItem.Name = "blurFiltersToolStripMenuItem";
-            this.blurFiltersToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.blurFiltersToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.blurFiltersToolStripMenuItem.Text = "Blur Filters";
             // 
             // blur3x3FilterToolStripMenuItem
@@ -260,7 +287,7 @@
             this.motionBlurLeftToRightFilterToolStripMenuItem,
             this.motionBlurRightToLeftFilterToolStripMenuItem});
             this.motionBlurFiltersToolStripMenuItem.Name = "motionBlurFiltersToolStripMenuItem";
-            this.motionBlurFiltersToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.motionBlurFiltersToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.motionBlurFiltersToolStripMenuItem.Text = "Motion Blur Filters";
             // 
             // motionBlurFilterToolStripMenuItem
@@ -287,7 +314,7 @@
             // softenFilterToolStripMenuItem
             // 
             this.softenFilterToolStripMenuItem.Name = "softenFilterToolStripMenuItem";
-            this.softenFilterToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.softenFilterToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.softenFilterToolStripMenuItem.Text = "Soften Filter";
             this.softenFilterToolStripMenuItem.Click += new System.EventHandler(this.softenFilterToolStripMenuItem_Click);
             // 
@@ -300,7 +327,7 @@
             this.sharpen5x5FilterToolStripMenuItem,
             this.intenseSharpenFilterToolStripMenuItem});
             this.sharpenFilterToolStripMenuItem.Name = "sharpenFilterToolStripMenuItem";
-            this.sharpenFilterToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.sharpenFilterToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.sharpenFilterToolStripMenuItem.Text = "Sharpen Filter";
             // 
             // sharpenFilterToolStripMenuItem1
@@ -346,7 +373,7 @@
             this.embossTopLeftBottomRightFilterToolStripMenuItem,
             this.intenseEmbossFilterToolStripMenuItem});
             this.embossFiltersToolStripMenuItem.Name = "embossFiltersToolStripMenuItem";
-            this.embossFiltersToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.embossFiltersToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.embossFiltersToolStripMenuItem.Text = "Emboss Filters";
             // 
             // embossFilterToolStripMenuItem
@@ -380,15 +407,15 @@
             // highPassFilterToolStripMenuItem
             // 
             this.highPassFilterToolStripMenuItem.Name = "highPassFilterToolStripMenuItem";
-            this.highPassFilterToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
+            this.highPassFilterToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.highPassFilterToolStripMenuItem.Text = "High Pass Filter";
             this.highPassFilterToolStripMenuItem.Click += new System.EventHandler(this.highPassFilterToolStripMenuItem_Click);
             // 
             // makeEditedPhotoCurrentToolStripMenuItem
             // 
             this.makeEditedPhotoCurrentToolStripMenuItem.Name = "makeEditedPhotoCurrentToolStripMenuItem";
-            this.makeEditedPhotoCurrentToolStripMenuItem.Size = new System.Drawing.Size(215, 22);
-            this.makeEditedPhotoCurrentToolStripMenuItem.Text = "Make edited photo current";
+            this.makeEditedPhotoCurrentToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.makeEditedPhotoCurrentToolStripMenuItem.Text = "Make edited image current";
             this.makeEditedPhotoCurrentToolStripMenuItem.Click += new System.EventHandler(this.makeEditedPhotoCurrentToolStripMenuItem_Click);
             // 
             // editedPhoto
@@ -405,6 +432,7 @@
             this.originalImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.originalImage.BackColor = System.Drawing.SystemColors.Control;
             this.originalImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.originalImage.Image = global::PhotoEditor.Properties.Resources.testpicture;
             this.originalImage.Location = new System.Drawing.Point(12, 28);
             this.originalImage.Name = "originalImage";
             this.originalImage.Size = new System.Drawing.Size(265, 465);
@@ -417,14 +445,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 501);
+            this.Controls.Add(this.filterNameTextBox);
+            this.Controls.Add(this.arrowPicture);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.editedPhoto);
             this.Controls.Add(this.originalImage);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "PhotoEditor";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.arrowPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editedPhoto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.originalImage)).EndInit();
             this.ResumeLayout(false);
@@ -476,6 +508,8 @@
         private System.Windows.Forms.ToolStripMenuItem highPassFilterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem edgeDetectionFilterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem makeEditedPhotoCurrentToolStripMenuItem;
+        private System.Windows.Forms.PictureBox arrowPicture;
+        private System.Windows.Forms.TextBox filterNameTextBox;
     }
 }
 

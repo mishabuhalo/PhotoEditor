@@ -94,7 +94,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="uploadIcon.jpg" />
+    <None Include="arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="testpicture.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

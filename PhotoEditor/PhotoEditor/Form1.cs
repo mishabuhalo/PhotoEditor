@@ -25,7 +25,7 @@ namespace PhotoEditor
         {
             if (originalImage.Image == null)
             {
-                MessageBox.Show("Please open photo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You should open photo first!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
@@ -35,6 +35,8 @@ namespace PhotoEditor
 
         private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            openFileDialog.Filter = "Image Files(*.jpg)|*.jpg|Image Files(*.bmp)|*.bmp|Image Files(*.gif)|*.gif|Image Files(*.png)|*.png|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             string fileName = openFileDialog.FileName.Replace(@"\", "\\");
@@ -56,7 +58,7 @@ namespace PhotoEditor
         {
             if (editedPhoto.Image == null)
             {
-                MessageBox.Show("Unnable to save the photo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("There are no edited image", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             saveFileDialog.Filter = "Image Files(*.jpg)|*.jpg|Image Files(*.bmp)|*.bmp|Image Files(*.gif)|*.gif|Image Files(*.png)|*.png|All files (*.*)|*.*";
@@ -80,6 +82,7 @@ namespace PhotoEditor
             if (checkOriginalPhoto())
             {
                 ConvolutionFilters filter = new Blur3x3Filter();
+                filterNameTextBox.Text = blur3x3FilterToolStripMenuItem.Text;
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
         }
@@ -89,7 +92,7 @@ namespace PhotoEditor
             if(checkOriginalPhoto())
             {
                 imageProcessing.editedBitmap = null;
-
+                filterNameTextBox.Text = blackAndWhiteToolStripMenuItem.Text;
                 imageProcessing.editedBitmap = BlackAndWhite.Edit(imageProcessing.originalBitmap);
 
                 if (imageProcessing.editedBitmap != null)
@@ -102,7 +105,7 @@ namespace PhotoEditor
             if(checkOriginalPhoto())
             {
                 imageProcessing.editedBitmap = null;
-
+                filterNameTextBox.Text = pixelArtToolStripMenuItem.Text;
                 imageProcessing.editedBitmap = PixelArt.Edit(imageProcessing.originalBitmap, 8);
 
                 if (imageProcessing.editedBitmap != null)
@@ -115,8 +118,9 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
-
+                
                 imageProcessing.editedBitmap = null;
+                filterNameTextBox.Text = oilPaintingToolStripMenuItem.Text;
                 imageProcessing.editedBitmap = imageProcessing.originalBitmap.OilPaintingFilter(25, 7);
                 if (imageProcessing.editedBitmap != null)
                     editedPhoto.Image = (Image)imageProcessing.editedBitmap;
@@ -128,7 +132,7 @@ namespace PhotoEditor
             if (checkOriginalPhoto())
             {
                 imageProcessing.editedBitmap = null;
-
+                filterNameTextBox.Text = negativeToolStripMenuItem.Text;
                 imageProcessing.editedBitmap = Negative.Edit(imageProcessing.originalBitmap);
 
                 if (imageProcessing.editedBitmap != null)
@@ -140,6 +144,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = edgeDetection45DegreeFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new EdgeDetection45DegreeFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -149,6 +154,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = edgeDetection45DegreeFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new EdgeDetectionFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -158,6 +164,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = horizontalEdgeDetectionFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new HorizontalEdgeDetectionFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -167,6 +174,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = verticalEdgeDetectionFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new VerticalEdgeDetectionFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -176,6 +184,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = edgeDetectionTopLeftBottomRightFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new EdgeDetectionTopLeftBottomRightFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -185,6 +194,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = blur5x5FilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new Blur5x5Filter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -194,6 +204,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = gaussian3x3BlurFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new Gaussian3x3BlurFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -203,6 +214,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = gaussian5x5BlurFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new Gaussian5x5BlurFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -212,6 +224,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = motionBlurFiltersToolStripMenuItem.Text;
                 ConvolutionFilters filter = new MotionBlurFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -221,6 +234,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = motionBlurLeftToRightFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new MotionBlurLeftToRightFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -231,6 +245,7 @@ namespace PhotoEditor
 
             if(checkOriginalPhoto())
             {
+                filterNameTextBox.Text = motionBlurRightToLeftFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new MotionBlurRightToLeftFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
 
@@ -241,6 +256,7 @@ namespace PhotoEditor
         {
             if(checkOriginalPhoto())
             {
+                filterNameTextBox.Text = softenFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new SoftenFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
 
@@ -251,6 +267,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = sharpen3x3FactorFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new SharpenFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -260,6 +277,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = sharpen3x3FilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new Sharpen3x3Filter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -269,6 +287,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = sharpen3x3FactorFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new Sharpen3x3FactorFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -278,6 +297,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = sharpen5x5FilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new Sharpen5x5Filter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -287,6 +307,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = intenseSharpenFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new IntenseSharpenFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -296,6 +317,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = embossFiltersToolStripMenuItem.Text;
                 ConvolutionFilters filter = new EmbossFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -305,6 +327,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = emboss45DegreeFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new Emboss45DegreeFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -314,6 +337,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = edgeDetectionTopLeftBottomRightFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new EmbossTopLeftBottomRightFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -323,6 +347,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = intenseEmbossFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new IntenseEmbossFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -332,6 +357,7 @@ namespace PhotoEditor
         {
             if (checkOriginalPhoto())
             {
+                filterNameTextBox.Text = highPassFilterToolStripMenuItem.Text;
                 ConvolutionFilters filter = new HighPassFilter();
                 editedPhoto.Image = imageProcessing.originalBitmap.ConvolutionMethod(filter);
             }
@@ -344,11 +370,21 @@ namespace PhotoEditor
                 originalImage.Image = editedPhoto.Image;
                 imageProcessing.originalBitmap = (Bitmap)editedPhoto.Image;
                 editedPhoto.Image = null;
+                filterNameTextBox.Text = "Please choose filter";
             }
 
             else
             {
                 MessageBox.Show("You have no edited image!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            imageProcessing.originalBitmap = (Bitmap)originalImage.Image;
+            if (checkOriginalPhoto())
+            {
+                oilPaintingToolStripMenuItem_Click(sender, e);
             }
         }
     }
